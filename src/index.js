@@ -1,18 +1,15 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import './index.css';
-import Popular from './Components/Popular';
-
-const text = {
-    "popularText": "Hey there world!"
-}
+import Popular from './components/Popular';
+import Battle from './components/Battle'
 
 class App extends React.Component {
 
     render() {
         return (
             <div className="container">
-                <Popular />
+                <Battle />
             </div>
         )
     }

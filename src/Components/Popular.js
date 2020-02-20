@@ -1,7 +1,7 @@
 import React from 'react';
 import LanguageNav from './LanguageNav';
 import PropType from 'prop-types';
-import { fetchPopularRepos } from './../Utils/api';
+import { fetchPopularRepos } from '../Utils/api';
 import { FaUser, FaStar, FaCodeBranch, FaExclamationTriangle, FaCode } from 'react-icons/fa';
 
 function ReporsGrid({ repos }) {

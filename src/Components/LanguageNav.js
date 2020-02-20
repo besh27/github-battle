@@ -19,10 +19,5 @@ function LanguageNav({ selected, onUpdateLanguage }) {
     )
 }
 
-PropTypes = {
-    selected: PropTypes.string.required,
-    onUpdateLanguage: PropTypes.func
-}
-
 export default LanguageNav;
 

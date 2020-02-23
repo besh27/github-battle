@@ -1,6 +1,7 @@
 import React from 'react';
 import Instructions from './Instructions';
 import PlayerInput from './PlayerInput';
+import PlayerPreview from './PlayerPreview';
 
 class Battle extends React.Component {
     constructor(props) {
@@ -10,11 +11,18 @@ class Battle extends React.Component {
             playerTwo: null,
         }
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleReset = this.handleReset.bind(this);
     }
 
     handleSubmit(id, player) {
         this.setState({
             [id]: player,
+        })
+    }
+
+    handleReset(id){
+        this.setState({
+            [id]: null,
         })
     }
 
@@ -29,18 +37,31 @@ class Battle extends React.Component {
                         Players
                     </h1>
                     <div className="row space-around">
-                        {playerOne === null && (
+                        {playerOne === null ?
                             <PlayerInput
                                 label="Player One"
                                 onSubmit={(player) => this.handleSubmit('playerOne', player)}
                             />
-                        )}
-                        {playerTwo === null && (
+                            :
+                            <PlayerPreview
+                                username={playerOne}
+                                label="Player One"
+                                onReset={() => this.handleReset('playerOne')}
+                            />
+                        }
+
+                        {playerTwo === null ?
                             <PlayerInput
                                 label="Player Two"
                                 onSubmit={(player) => this.handleSubmit('playerTwo', player)}
                             />
-                        )}
+                            :
+                            <PlayerPreview
+                                username={playerTwo}
+                                label="Player One"
+                                onReset={() => this.handleReset('playerTwo')}
+                            />
+                        }
                     </div>
                 </div>
             </>

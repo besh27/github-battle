@@ -55,7 +55,7 @@ class Battle extends React.Component {
                 {playerOne === null
                   ? <PlayerInput
                       label='Player One'
-                      onSubmit={(player) => this.handleSubmit('playerOne', player)}
+                      onSubmit={(player) => this.handleSubmit('playerOne', player)           }
                     />
                   : <PlayerPreview
                       username={playerOne}

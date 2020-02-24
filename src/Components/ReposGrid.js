@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FaUser, FaStar, FaCodeBranch, FaExclamationTriangle, FaCode } from 'react-icons/fa';
 import Card from './Card';
+import ToolTip from './ToolTip';
+
 function ReposGrid({ repos }) {
     return (
         <ul className="grid space-around">
@@ -19,22 +21,30 @@ function ReposGrid({ repos }) {
                         >
                             <ul className='card-list'>
                                 <li>
+                                    <ToolTip text="Username">
                                     <FaUser color="rgb(255, 191, 116)" size={22} />
                                     <a href={`https://github.com/${login}`}>
                                         {login}
                                     </a>
+                                    </ToolTip>
                                 </li>
                                 <li>
+                                    <ToolTip text="Stars">
                                     <FaStar color="rgb(255, 215, 0)" size={22} />
                                     {stargazers_count.toLocaleString()} stars
+                                    </ToolTip>
                             </li>
                                 <li>
+                                <ToolTip text="Forks">
                                     <FaCodeBranch color="rgb(129, 195, 245)" size={22} />
                                     {forks.toLocaleString()} forks
+                                    </ToolTip>
                             </li>
                                 <li>
+                                <ToolTip text="Open Issues">
                                     <FaExclamationTriangle color="rgb(241, 138, 147)" size={22} />
                                     {open_issues.toLocaleString()} open issues
+                                    </ToolTip>
                             </li>
                             </ul>
                         </Card>

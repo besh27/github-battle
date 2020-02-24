@@ -5,7 +5,6 @@ import { fetchPopularRepos } from '../Utils/api';
 import ReposGrid from './ReposGrid';
 import Loading from './Loading';
 
-// <pre>{JSON.stringify(repos, null, 2)}</pre>
 class Popular extends React.Component {
     constructor(props) {
         super(props)

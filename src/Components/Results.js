@@ -61,7 +61,7 @@ class Results extends React.Component {
                     </Card>
                     <Card
                         header={loser.score === winner.score ? 'Tie' : 'Loser'}
-                        subheader={loser.score.toLocaleString()}
+                        subheader={`Score: ${loser.score.toLocaleString()}`}
                         avatar={loser.profile.avatar_url}
                         href={loser.profile.html_url}
                         name={loser.profile.login}

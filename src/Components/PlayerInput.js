@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { ThemeConsumer } from './../contexts/theme';
 
 class PlayerInput extends React.Component {
     constructor(props) {
@@ -24,7 +25,9 @@ class PlayerInput extends React.Component {
 
     render() {
         return (
-            <form className="column player" onSubmit={this.handleSubmit}>
+            <ThemeConsumer>
+            {({theme}) => (
+                <form className="column player" onSubmit={this.handleSubmit}>
                 <label htmlFor='username' className='player-label'>
                     {this.props.label}
                 </label>
@@ -32,14 +35,14 @@ class PlayerInput extends React.Component {
                     <input
                         type='text'
                         id='username'
-                        className='input-light'
+                        className={`input-${theme}`}
                         placeholder='github username'
                         autoComplete='off'
                         value={this.state.username}
                         onChange={this.handleChange}
                     />
                     <button
-                        className='btn dark-btn'
+                        className={`btn ${theme}-btn`}
                         type='submit'
                         disabled={!this.state.username}
                     >
@@ -47,6 +50,10 @@ class PlayerInput extends React.Component {
                       </button>
                 </div>
             </form>
+
+            )}
+            
+            </ThemeConsumer>
         )
     }
 }

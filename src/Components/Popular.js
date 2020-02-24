@@ -12,20 +12,19 @@ class Popular extends React.Component {
         this.state = {
             selectedLanguage: 'All',
             repos: {},
-            error: null
+            error: null,
         }
+
         this.updateLanguage = this.updateLanguage.bind(this)
         this.isLoading = this.isLoading.bind(this)
     }
-
     componentDidMount() {
         this.updateLanguage(this.state.selectedLanguage)
     }
-
     updateLanguage(selectedLanguage) {
         this.setState({
             selectedLanguage,
-            error: null
+            error: null,
         })
 
         if (!this.state.repos[selectedLanguage]) {
@@ -39,7 +38,7 @@ class Popular extends React.Component {
                     }))
                 })
                 .catch(() => {
-                    console.warn('Error Fetching Repos: ', error)
+                    console.warn('Error fetching repos: ', error)
 
                     this.setState({
                         error: `There was an error fetching the repositories.`
@@ -47,22 +46,25 @@ class Popular extends React.Component {
                 })
         }
     }
-
     isLoading() {
-        const { selectedLanguage, repos, error } = this.state;
-        return !repos[selectedLanguage, repos, error] && error === null
-    }
+        const { selectedLanguage, repos, error } = this.state
 
+        return !repos[selectedLanguage] && error === null
+    }
     render() {
         const { selectedLanguage, repos, error } = this.state
+
         return (
             <React.Fragment>
                 <LanguageNav
                     selected={selectedLanguage}
                     onUpdateLanguage={this.updateLanguage}
                 />
+
                 {this.isLoading() && <Loading text='Fetching Repos' />}
-                {error && <p className="error">error</p>}
+
+                {error && <p className='center-text error'>{error}</p>}
+
                 {repos[selectedLanguage] && <ReposGrid repos={repos[selectedLanguage]} />}
             </React.Fragment>
         )

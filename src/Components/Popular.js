@@ -61,7 +61,7 @@ class Popular extends React.Component {
                     selected={selectedLanguage}
                     onUpdateLanguage={this.updateLanguage}
                 />
-                {error && <p>error</p>}
+                {error && <p className="error">error</p>}
                 {repos[selectedLanguage] && <ReposGrid repos={repos[selectedLanguage]} />}
             </React.Fragment>
         )

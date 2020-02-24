@@ -37,52 +37,47 @@ class Battle extends React.Component {
 
         return (
             <>
-                <Instructions />
-                <div className="players-container">
-                    <h1 className="center-text header-lg">
-                        Players
-                    </h1>
-                    <div className="row space-around">
-                        {playerOne === null ?
-                            <PlayerInput
-                                label="Player One"
-                                onSubmit={(player) => this.handleSubmit('playerOne', player)}
-                            />
-                            :
-                            <PlayerPreview
-                                username={playerOne}
-                                label="Player One"
-                                onReset={() => this.handleReset('playerOne')}
-                            />
-                        }
-
-                        {playerTwo === null ?
-                            <PlayerInput
-                                label="Player Two"
-                                onSubmit={(player) => this.handleSubmit('playerTwo', player)}
-                            />
-                            :
-                            <PlayerPreview
-                                username={playerTwo}
-                                label="Player One"
-                                onReset={() => this.handleReset('playerTwo')}
-                            />
-                        }
-                    </div>
-                </div>
-                {
-                    playerOne !== null &&
-                    playerTwo !== null &&
-                    (
-                        <button
-                            className="btn dark-btn btn-space"
-                            onClick={() => this.setState({ battle: true })}
-                        >
-                            Battle
-                        </button>
-                    )
+            <Instructions />
+    
+            <div className='players-container'>
+              <h1 className='center-text header-lg'>Players</h1>
+              <div className='row space-around'>
+                {playerOne === null
+                  ? <PlayerInput
+                      label='Player One'
+                      onSubmit={(player) => this.handleSubmit('playerOne', player)}
+                    />
+                  : <PlayerPreview
+                      username={playerOne}
+                      label='Player One'
+                      onReset={() => this.handleReset('playerOne')}
+                    />
                 }
-            </>
+    
+                {playerTwo === null
+                  ? <PlayerInput
+                      label='Player Two'
+                      onSubmit={(player) => this.handleSubmit('playerTwo', player)}
+                    />
+                  : <PlayerPreview
+                      username={playerTwo}
+                      label='Player Two'
+                      onReset={() => this.handleReset('playerTwo')}
+                    />
+                }
+              </div>
+    
+    
+              {playerOne && playerTwo && (
+                <button
+                  className='btn dark-btn btn-space'
+                  onClick={() => this.setState({battle: true})}
+                >
+                  Battle
+                </button>
+              )}
+            </div>
+          </>
         )
     }
 }

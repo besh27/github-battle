@@ -1,13 +1,11 @@
-html,
-body,
-#root {
+html, body, #app {
   margin: 0;
   height: 100%;
   width: 100%;
 }
 
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
 }
 
 ul {
@@ -42,14 +40,11 @@ li {
   color: inherit;
 }
 
-.selected {
-  color: red;
-}
-
 .grid {
   display: flex;
   flex-wrap: wrap;
 }
+
 .space-around {
   justify-content: space-around;
 }
@@ -78,7 +73,7 @@ li {
   text-align: center;
 }
 
-link {
+.link {
   color: rgb(187, 46, 31);
   text-decoration: none;
   font-weight: bold;
@@ -100,7 +95,7 @@ link {
 }
 
 .card-list a {
-  font-weight: 500px;
+  font-weight: 500;
   color: inherit;
 }
 
@@ -109,17 +104,17 @@ link {
   border-radius: 3px;
 }
 
-.repo {
+.card {
   margin: 10px 0;
   width: 250px;
   padding: 20px;
 }
 
-.repo a {
+.card a {
   text-decoration: none;
 }
 
-.repo-img {
+.card img {
   margin-bottom: 8px;
 }
 
@@ -139,7 +134,7 @@ link {
 
 .battle-instructions li {
   flex: 1;
-  min-width: 300px;
+  min-width: 300px
 }
 
 .battle-instructions svg {
@@ -178,7 +173,7 @@ link {
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
 }
 
-.player-inputs .inputs-light {
+.player-inputs .input-light {
   background: rgba(0, 0, 0, 0.02);
 }
 
@@ -190,7 +185,7 @@ link {
 .btn {
   padding: 10px;
   text-decoration: uppercase;
-  letter-spacing: 0.25em;
+  letter-spacing: .25em;
   border-radius: 3px;
   border: none;
   font-size: 16px;
@@ -212,7 +207,7 @@ link {
   color: #c7c7c7;
 }
 
-.player-container {
+.players-container {
   margin: 100px 0;
 }
 
@@ -221,6 +216,7 @@ link {
   height: 55px;
   border-radius: 50%;
 }
+
 .player-info {
   display: flex;
   flex: 1;
@@ -229,6 +225,16 @@ link {
   padding: 10px;
 }
 
-.player-info .link{
+.player-info .link {
   margin-left: 10px;
+}
+
+.btn-space {
+  margin: 40px auto;
+}
+
+.error {
+  color: #ff1616;
+  font-size: 20px;
+  margin: 50px 0;
 }

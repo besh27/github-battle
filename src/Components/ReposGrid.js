@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FaUser, FaStar, FaCodeBranch, FaExclamationTriangle, FaCode } from 'react-icons/fa';
+import { ThemeConsumer } from './../contexts/theme';
 import Card from './Card';
 import ToolTip from './ToolTip';
-import { ThemeConsumer } from './../contexts/theme';
 
 function ReposGrid({ repos }) {
     return (

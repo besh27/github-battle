@@ -1,9 +1,9 @@
 import React from 'react';
 import PropType from 'prop-types';
-import LanguageNav from './LanguageNav';
 import { fetchPopularRepos } from '../Utils/api';
-import ReposGrid from './ReposGrid';
+import LanguageNav from './LanguageNav';
 import Loading from './Loading';
+import ReposGrid from './ReposGrid';
 
 class Popular extends React.Component {
     constructor(props) {

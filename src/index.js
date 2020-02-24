@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import './index.css';
-import Popular from './components/Popular';
-import Battle from './components/Battle'
-import { ThemeProvider } from './contexts/theme';
-import Nav from './Components/Nav';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
+import './index.css';
+import { ThemeProvider } from './contexts/theme';
+import Battle from './components/Battle'
+import Nav from './Components/Nav';
+import Popular from './components/Popular';
+
 
 class App extends React.Component {
     constructor(props) {

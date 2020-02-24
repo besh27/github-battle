@@ -1,10 +1,10 @@
 import React from 'react';
 import { battle } from '../Utils/api';
 import { FaCompass, FaBriefcase, FaUsers, FaUserFriends, FaCode, FaUser } from 'react-icons/fa'
-import Card from './Card';
-import ProfileList from './ProfileList';
 import { PropTypes } from 'prop-types';
+import Card from './Card';
 import Loading from './Loading';
+import ProfileList from './ProfileList';
 
 class Results extends React.Component {
     constructor(props) {

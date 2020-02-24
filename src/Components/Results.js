@@ -3,6 +3,7 @@ import { battle } from '../Utils/api';
 import { FaCompass, FaBriefcase, FaUsers, FaUserFriends, FaCode, FaUser } from 'react-icons/fa'
 import Card from './Card';
 import ProfileList from './ProfileList';
+import { PropTypes } from 'prop-types';
 
 class Results extends React.Component {
     constructor(props) {
@@ -17,7 +18,7 @@ class Results extends React.Component {
     }
 
     componentDidMount() {
-        const { playerOne, playerTwo } = this.props;
+        const { playerOne, playerTwo, onReset } = this.props;
         battle([playerOne, playerTwo])
             .then((players) => {
                 this.setState({
@@ -46,8 +47,8 @@ class Results extends React.Component {
             )
         }
         return (
-            <div className="grid space-around contianer-sm">
-                <div className="card bg-light">
+            <>
+                <div className='grid space-around container-sm'>
                     <Card
                         header={winner.score === loser.score ? 'Tie' : 'Winner'}
                         subheader={`Score: ${winner.score.toLocaleString()}`}
@@ -55,10 +56,8 @@ class Results extends React.Component {
                         href={winner.profile.html_url}
                         name={winner.profile.login}
                     >
-                        <ProfileList profile={winner.profile}/>
+                        <ProfileList profile={winner.profile} />
                     </Card>
-                </div>
-                <div className="card bg-light">
                     <Card
                         header={loser.score === winner.score ? 'Tie' : 'Loser'}
                         subheader={loser.score.toLocaleString()}
@@ -66,13 +65,24 @@ class Results extends React.Component {
                         href={loser.profile.html_url}
                         name={loser.profile.login}
                     >
-                        <ProfileList profile={loser.profile}/>
+                        <ProfileList profile={loser.profile} />
                     </Card>
                 </div>
-
-            </div>
+                <button
+                    className='btn dark-btn btn-space'
+                    onClick={this.props.onReset}
+                >
+                    Reset
+            </button>
+            </>
         )
     }
+}
+
+Results.propTypes = {
+    playerOne: PropTypes.string.isRequired,
+    playerTwo: PropTypes.string.isRequired,
+    onReset: PropTypes.func.isRequired,
 }
 
 export default Results;

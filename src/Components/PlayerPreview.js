@@ -30,7 +30,7 @@ function PlayerPreview ({username, onReset, label}){
 
 PlayerPreview.propTypes = {
     username: PropTypes.string.isRequired,
-    onReset: PropTypes.string.isRequired,
+    onReset: PropTypes.func.isRequired,
     label: PropTypes.string.isRequired
 }
 

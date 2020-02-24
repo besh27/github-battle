@@ -3,6 +3,7 @@ import PropType from 'prop-types';
 import LanguageNav from './LanguageNav';
 import { fetchPopularRepos } from '../Utils/api';
 import ReposGrid from './ReposGrid';
+import Loading from './Loading';
 
 // <pre>{JSON.stringify(repos, null, 2)}</pre>
 class Popular extends React.Component {
@@ -61,6 +62,7 @@ class Popular extends React.Component {
                     selected={selectedLanguage}
                     onUpdateLanguage={this.updateLanguage}
                 />
+                {this.isLoading() && <Loading text='Fetching Repos' />}
                 {error && <p className="error">error</p>}
                 {repos[selectedLanguage] && <ReposGrid repos={repos[selectedLanguage]} />}
             </React.Fragment>

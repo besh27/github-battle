@@ -4,6 +4,7 @@ import { FaCompass, FaBriefcase, FaUsers, FaUserFriends, FaCode, FaUser } from '
 import Card from './Card';
 import ProfileList from './ProfileList';
 import { PropTypes } from 'prop-types';
+import Loading from './Loading';
 
 class Results extends React.Component {
     constructor(props) {
@@ -38,7 +39,7 @@ class Results extends React.Component {
         const { winner, loser, error, loading } = this.state;
 
         if (loading === true) {
-            return <p>LOADING</p>
+            return <Loading text='Battling' />
         }
 
         if (error) {
